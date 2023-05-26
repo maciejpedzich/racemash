@@ -29,6 +29,12 @@ export function useAuth() {
 
       const currentUser = await account.get();
       user.value = currentUser;
+    } catch (error) {
+      if (import.meta.env.DEV) {
+        console.error(error);
+      }
+
+      user.value = null;
     } finally {
       loadingUserFinished.value = true;
     }

@@ -8,13 +8,7 @@ export async function authGuard(
 ) {
   const { isLoggedIn, loadUser } = useAuth();
 
-  try {
-    await loadUser();
-  } catch (error) {
-    if (import.meta.env.DEV) {
-      console.error(error);
-    }
-  }
+  await loadUser();
 
   if (!to.meta.authRequired || isLoggedIn.value) {
     return next();
