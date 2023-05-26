@@ -1,7 +1,23 @@
 <script lang="ts" setup>
-import { useAuth } from '@/composables/useAuth';
+import { onMounted } from 'vue';
+import { useRoute } from 'vue-router';
 
+import { useAuth } from '@/composables/useAuth';
+import { useSnackbar } from '@/composables/useSnackbar';
+
+const route = useRoute();
 const { logIn } = useAuth();
+const { showSnackbar } = useSnackbar();
+
+onMounted(() => {
+  if (route.hash === '#login-error') {
+    showSnackbar({
+      color: 'error',
+      title: 'Error',
+      message: 'Failed to log you in.'
+    });
+  }
+});
 </script>
 
 <template>
