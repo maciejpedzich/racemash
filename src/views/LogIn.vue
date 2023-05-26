@@ -26,10 +26,14 @@ onMounted(() => {
     <v-container>
       <v-row align="center" justify="center">
         <v-col cols="auto">
-          <v-btn size="large" @click="logIn('github')">GitHub</v-btn>
+          <v-btn color="github" size="large" @click="logIn('github')"
+            >GitHub</v-btn
+          >
         </v-col>
         <v-col cols="auto">
-          <v-btn size="large" @click="logIn('discord')">Discord</v-btn>
+          <v-btn color="discord" size="large" @click="logIn('discord')"
+            >Discord</v-btn
+          >
         </v-col>
       </v-row>
     </v-container>

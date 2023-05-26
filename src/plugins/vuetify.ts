@@ -18,13 +18,17 @@ export default createVuetify({
       light: {
         colors: {
           primary: '#3f51b5',
-          secondary: '#5cbbf6'
+          secondary: '#5cbbf6',
+          github: '#2b3137',
+          discord: '#5865f2'
         }
       },
       dark: {
         colors: {
           primary: '#1a237e',
-          secondary: '#3949ab'
+          secondary: '#3949ab',
+          github: '#2b3137',
+          discord: '#5865f2'
         }
       }
     }
