@@ -4,7 +4,7 @@ import { Models } from 'appwrite';
 import { account } from '@/appwrite';
 
 const user = ref<Models.User<Models.Preferences> | null>(null);
-const userLoadingFinished = ref(false);
+const loadingUserFinished = ref(false);
 const isLoggedIn = computed(() => !!user.value);
 
 export function useAuth() {
@@ -17,24 +17,20 @@ export function useAuth() {
 
     account.createOAuth2Session(
       provider,
-      `${location.origin}${redirectPath}`,
-      `${location.origin}/log-in#oauth-error`,
+      `${location.origin}${redirectPath}#login-success`,
+      `${location.origin}/log-in#login-error`,
       permissionScopes
     );
   };
 
   const loadUser = async () => {
     try {
-      if (userLoadingFinished.value) return;
+      if (loadingUserFinished.value) return;
 
       const currentUser = await account.get();
       user.value = currentUser;
-    } catch (error) {
-      // TODO: Add to globaL Vue error logger and implement snackbar message bus
-      console.error(error);
-      user.value = null;
     } finally {
-      userLoadingFinished.value = true;
+      loadingUserFinished.value = true;
     }
   };
 
@@ -45,7 +41,7 @@ export function useAuth() {
 
   return {
     user,
-    userLoadingFinished,
+    loadingUserFinished,
     isLoggedIn,
     logIn,
     loadUser,
