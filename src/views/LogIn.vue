@@ -12,8 +12,7 @@ const { showSnackbar } = useSnackbar();
 onMounted(() => {
   if (route.hash === '#login-error') {
     showSnackbar({
-      color: 'error',
-      title: 'Error',
+      status: 'error',
       message: 'Failed to log you in.'
     });
   }

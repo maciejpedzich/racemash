@@ -18,8 +18,7 @@ onMounted(async () => {
   if (router.currentRoute.value.hash === '#login-success') {
     localStorage.removeItem('redirectPath');
     showSnackbar({
-      color: 'success',
-      title: 'Success',
+      status: 'success',
       message: "You're logged in!"
     });
   }

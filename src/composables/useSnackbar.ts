@@ -2,14 +2,12 @@ import { reactive, toRefs } from 'vue';
 
 interface Snackbar {
   visible: boolean;
-  color: '' | 'error' | 'success';
-  title: string;
+  status: '' | 'error' | 'success';
   message: string;
 }
 
 const snackbar = reactive<Snackbar>({
-  color: '',
-  title: '',
+  status: '',
   message: '',
   visible: false
 });
