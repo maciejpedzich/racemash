@@ -7,9 +7,9 @@ interface Snackbar {
 }
 
 const snackbar = reactive<Snackbar>({
+  visible: false,
   status: '',
-  message: '',
-  visible: false
+  message: ''
 });
 
 export function useSnackbar() {
