@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { useSnackbar } from '@/composables/useSnackbar';
 import { computed } from 'vue';
+import { useSnackbar } from '@/composables/useSnackbar';
 
 const { visible, status, message } = useSnackbar();
 const title = computed(() => (status.value === 'error' ? 'Error' : 'Success'));
