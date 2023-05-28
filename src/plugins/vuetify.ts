@@ -17,16 +17,16 @@ export default createVuetify({
     themes: {
       light: {
         colors: {
-          primary: '#3f51b5',
-          secondary: '#5cbbf6',
+          primary: '#d32f2f',
+          secondary: '#f44336',
           github: '#2b3137',
           discord: '#5865f2'
         }
       },
       dark: {
         colors: {
-          primary: '#1a237e',
-          secondary: '#3949ab',
+          primary: '#b71c1c',
+          secondary: '#d50000',
           github: '#2b3137',
           discord: '#5865f2'
         }
