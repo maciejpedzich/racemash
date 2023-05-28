@@ -15,11 +15,18 @@ const { showSnackbar } = useSnackbar();
 onMounted(async () => {
   await router.isReady();
 
-  if (router.currentRoute.value.hash === '#login-success') {
+  const loginStatusHashes = ['#login-error', '#login-success'];
+  const routeHash = router.currentRoute.value.hash;
+
+  if (loginStatusHashes.includes(routeHash)) {
     localStorage.removeItem('redirectPath');
+
     showSnackbar({
-      status: 'success',
-      message: "You're logged in!"
+      status: routeHash.replace('#login-', '') as 'error' | 'success',
+      message:
+        routeHash === '#login-error'
+          ? 'Failed to log you in'
+          : "You're logged in"
     });
   }
 });
