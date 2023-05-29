@@ -44,7 +44,7 @@ onMounted(async () => {
         <v-progress-circular
           :size="120"
           :width="7"
-          color="indigo"
+          color="primary"
           indeterminate
         ></v-progress-circular>
       </section>
