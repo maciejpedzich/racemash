@@ -17,10 +17,4 @@ const app = createApp(App);
 
 registerPlugins(app);
 
-app.config.errorHandler = (error) => {
-  if (import.meta.env.DEV) {
-    console.error(error);
-  }
-};
-
 app.mount('#app');
