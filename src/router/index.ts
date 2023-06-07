@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
-import { authGuard } from '@/guards/auth';
 import Home from '@/views/Home.vue';
 
 const routes = [
@@ -26,7 +25,5 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 });
-
-router.beforeEach(authGuard);
 
 export default router;
