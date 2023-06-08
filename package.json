@@ -11,8 +11,7 @@
   },
   "dependencies": {
     "@mdi/font": "7.0.96",
-    "glicko2": "^1.1.0",
-    "lowdb": "^6.0.1",
+    "glicko2-lite": "^3.2.0",
     "roboto-fontface": "*",
     "vue": "^3.2.0",
     "vue-router": "^4.0.0",
