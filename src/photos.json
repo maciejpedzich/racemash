@@ -1,98 +1,170 @@
 [
   {
     "url": "/images/0.png",
-    "altText": "Close-up shot of an AlphaTauri F1 car going around the Tosa corner at Imola in wet weather conditions"
+    "altText": "Close-up shot of an AlphaTauri F1 car going around the Tosa corner at Imola in wet weather conditions",
+    "rating": 1500,
+    "ratingDeviation": 350,
+    "volatility": 0.06
   },
   {
     "url": "/images/1.png",
-    "altText": "Close-up shot of a Mercedes F1 car going around turn 14 at Sakhir International Circuit in dry conditions"
+    "altText": "Close-up shot of a Mercedes F1 car going around turn 14 at Sakhir International Circuit in dry conditions",
+    "rating": 1500,
+    "ratingDeviation": 350,
+    "volatility": 0.06
   },
   {
     "url": "/images/2.png",
-    "altText": "Zoomed-out shot of a Haas F1 car going around turns 5, 6, and 7 at the Circuit Of The Americas in dry conditions"
+    "altText": "Zoomed-out shot of a Haas F1 car going around turns 5, 6, and 7 at the Circuit Of The Americas in dry conditions",
+    "rating": 1500,
+    "ratingDeviation": 350,
+    "volatility": 0.06
   },
   {
     "url": "/images/3.png",
-    "altText": "Bird's eye view shot of an Aston Martin F1 car going around Brooklands and Luffield turns at the Silverstone Circuit in wet weather conditions"
+    "altText": "Bird's eye view shot of an Aston Martin F1 car going around Brooklands and Luffield turns at the Silverstone Circuit in wet weather conditions",
+    "rating": 1500,
+    "ratingDeviation": 350,
+    "volatility": 0.06
   },
   {
     "url": "/images/4.png",
-    "altText": "Zoomed-out shot of a McLaren F1 car going around turns 3 and 4 at Albert Park in dry conditions"
+    "altText": "Zoomed-out shot of a McLaren F1 car going around turns 3 and 4 at Albert Park in dry conditions",
+    "rating": 1500,
+    "ratingDeviation": 350,
+    "volatility": 0.06
   },
   {
     "url": "/images/5.png",
-    "altText": "Askew shot of an Alfa Romeo F1 car with a purple-lit block of flats in the background at a brightly lit Jeddah Corniche circuit in wet weather conditions"
+    "altText": "Askew shot of an Alfa Romeo F1 car with a purple-lit block of flats in the background at a brightly lit Jeddah Corniche circuit in wet weather conditions",
+    "rating": 1500,
+    "ratingDeviation": 350,
+    "volatility": 0.06
   },
   {
     "url": "/images/6.png",
-    "altText": "Zoomed-out shot of a Haas F1 car driving by the Hard Rock Stadium at the Miami International Autodrome in dry weather conditions"
+    "altText": "Zoomed-out shot of a Haas F1 car driving by the Hard Rock Stadium at the Miami International Autodrome in dry weather conditions",
+    "rating": 1500,
+    "ratingDeviation": 350,
+    "volatility": 0.06
   },
   {
     "url": "/images/7.png",
-    "altText": "Askew shot of an Alpine F1 car on the start-finish straight at Circuit Barcelona Catalunya in dry weather conditions"
+    "altText": "Askew shot of an Alpine F1 car on the start-finish straight at Circuit Barcelona Catalunya in dry weather conditions",
+    "rating": 1500,
+    "ratingDeviation": 350,
+    "volatility": 0.06
   },
   {
     "url": "/images/8.png",
-    "altText": "Zoomed-out shot of a Ferrari F1 car driving around Rascasse around a well-lit Circuit de Monaco at midnight"
+    "altText": "Zoomed-out shot of a Ferrari F1 car driving around Rascasse around a well-lit Circuit de Monaco at midnight",
+    "rating": 1500,
+    "ratingDeviation": 350,
+    "volatility": 0.06
   },
   {
     "url": "/images/9.png",
-    "altText": "Frog's eye view of a block of flats and an Alpine F1 car at the Baku Street Circuit in wet weather conditions"
+    "altText": "Frog's eye view of a block of flats and an Alpine F1 car at the Baku Street Circuit in wet weather conditions",
+    "rating": 1500,
+    "ratingDeviation": 350,
+    "volatility": 0.06
   },
   {
     "url": "/images/10.png",
-    "altText": "Zoomed-out shot of an Aston Martin F1 car going around U-turn 10 at Circuit Gilles Villeneuve in wet weather conditions"
+    "altText": "Zoomed-out shot of an Aston Martin F1 car going around U-turn 10 at Circuit Gilles Villeneuve in wet weather conditions",
+    "rating": 1500,
+    "ratingDeviation": 350,
+    "volatility": 0.06
   },
   {
     "url": "/images/11.png",
-    "altText": "Red Bull F1 car exitting turns 7 and 8 at the Red Bull Ring in dry conditions"
+    "altText": "Red Bull F1 car exitting turns 7 and 8 at the Red Bull Ring in dry conditions",
+    "rating": 1500,
+    "ratingDeviation": 350,
+    "volatility": 0.06
   },
   {
     "url": "/images/12.png",
-    "altText": "Bird's eye view of an AlphaTauri F1 car making its way through the final turn at Circuit Paul Ricard in dry conditions"
+    "altText": "Bird's eye view of an AlphaTauri F1 car making its way through the final turn at Circuit Paul Ricard in dry conditions",
+    "rating": 1500,
+    "ratingDeviation": 350,
+    "volatility": 0.06
   },
   {
     "url": "/images/13.png",
-    "altText": "Zoomed-out shot of an Alfa Romeo going around U-turn 13 at the Hungaroring circuit in dry conditions"
+    "altText": "Zoomed-out shot of an Alfa Romeo going around U-turn 13 at the Hungaroring circuit in dry conditions",
+    "rating": 1500,
+    "ratingDeviation": 350,
+    "volatility": 0.06
   },
   {
     "url": "/images/14.png",
-    "altText": "Askew shot of a Ferrari F1 car approaching Eau Rouge at the Spa-Francorshamps Circuit in dry conditions"
+    "altText": "Askew shot of a Ferrari F1 car approaching Eau Rouge at the Spa-Francorshamps Circuit in dry conditions",
+    "rating": 1500,
+    "ratingDeviation": 350,
+    "volatility": 0.06
   },
   {
     "url": "/images/15.png",
-    "altText": "Askew shot of a Red Bull F1 car going around a banked U-turn with a ferris wheel and a filming crew's crane at the Zandvoort circuit in dry conditions"
+    "altText": "Askew shot of a Red Bull F1 car going around a banked U-turn with a ferris wheel and a filming crew's crane at the Zandvoort circuit in dry conditions",
+    "rating": 1500,
+    "ratingDeviation": 350,
+    "volatility": 0.06
   },
   {
     "url": "/images/16.png",
-    "altText": "Close-up shot of a Ferrari F1 car with grandstands and a large Italian flag in the background at Autodromo Nazionale di Monza in dry conditions"
+    "altText": "Close-up shot of a Ferrari F1 car with grandstands and a large Italian flag in the background at Autodromo Nazionale di Monza in dry conditions",
+    "rating": 1500,
+    "ratingDeviation": 350,
+    "volatility": 0.06
   },
   {
     "url": "/images/17.png",
-    "altText": "Close-up shot of a Williams F1 with a massive ferris wheel in the background at the Marina Bay street circuit at midnight in dry conditions"
+    "altText": "Close-up shot of a Williams F1 with a massive ferris wheel in the background at the Marina Bay street circuit at midnight in dry conditions",
+    "rating": 1500,
+    "ratingDeviation": 350,
+    "volatility": 0.06
   },
   {
     "url": "/images/18.png",
-    "altText": "Zoomed-out shot of an AlphaTauri F1 car going around the famous Suzuka esses in wet weather conditions"
+    "altText": "Zoomed-out shot of an AlphaTauri F1 car going around the famous Suzuka esses in wet weather conditions",
+    "rating": 1500,
+    "ratingDeviation": 350,
+    "volatility": 0.06
   },
   {
     "url": "/images/19.png",
-    "altText": "Haas F1 car driving next to a jumbotron showing the same car from the exact camera angle as in the photograph at Autodromo Hermanos Rodriguez in wet weather conditions"
+    "altText": "Haas F1 car driving next to a jumbotron showing the same car from the exact camera angle as in the photograph at Autodromo Hermanos Rodriguez in wet weather conditions",
+    "rating": 1500,
+    "ratingDeviation": 350,
+    "volatility": 0.06
   },
   {
     "url": "/images/20.png",
-    "altText": "Close-up shot of a Mercedes F1 car going around turn 4 at Autodromo Jose Carlos Pace in Brazil in dry conditions"
+    "altText": "Close-up shot of a Mercedes F1 car going around turn 4 at Autodromo Jose Carlos Pace in Brazil in dry conditions",
+    "rating": 1500,
+    "ratingDeviation": 350,
+    "volatility": 0.06
   },
   {
     "url": "/images/21.png",
-    "altText": "Close-up shot of a Red Bull F1 car on the start-finish straight at the Yas Marina circuit at midnight in dry conditions"
+    "altText": "Close-up shot of a Red Bull F1 car on the start-finish straight at the Yas Marina circuit at midnight in dry conditions",
+    "rating": 1500,
+    "ratingDeviation": 350,
+    "volatility": 0.06
   },
   {
     "url": "/images/22.png",
-    "altText": "Askew shot of an Alpine F1 car on the start-finish straight at the Algarve International Circuit in dry conditions"
+    "altText": "Askew shot of an Alpine F1 car on the start-finish straight at the Algarve International Circuit in dry conditions",
+    "rating": 1500,
+    "ratingDeviation": 350,
+    "volatility": 0.06
   },
   {
     "url": "/images/23.png",
-    "altText": "Close-up shot olf an Alfa Romeo F1 car driving by the main grandstand at the Shanghai International Circuit in dry conditions"
+    "altText": "Close-up shot olf an Alfa Romeo F1 car driving by the main grandstand at the Shanghai International Circuit in dry conditions",
+    "rating": 1500,
+    "ratingDeviation": 350,
+    "volatility": 0.06
   }
 ]
