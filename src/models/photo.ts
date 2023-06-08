@@ -1,6 +1,4 @@
-import { Models } from 'appwrite';
-
-export interface Photo extends Models.Document {
+export interface Photo {
   url: string;
   rating: number;
   ratingDeviation: number;

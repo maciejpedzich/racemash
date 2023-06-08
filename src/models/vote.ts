@@ -1,8 +1,4 @@
-import { Models } from 'appwrite';
-
-export interface Vote extends Models.Document {
-  voterId: string;
-  photo1Id: string;
-  photo2Id: string;
-  result: number;
+export interface Vote {
+  photos: [string, string];
+  result: 0 | 0.5 | 1;
 }
