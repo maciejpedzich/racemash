@@ -1,18 +1,7 @@
 <script lang="ts" setup>
-import { computed, onMounted, ref } from 'vue';
+import { useVote } from '@/composables/useVote';
 
-import { useSnackbar } from '@/composables/useSnackbar';
-import { useRandomNumber } from '@/composables/useRandomNumber';
-
-import { Vote } from '@/models/vote';
-import { Photo } from '@/models/photo';
-import { PhotoAppearanceCount } from '@/models/photoAppearanceCount';
-
-const { showSnackbar } = useSnackbar();
-const randomNumber = useRandomNumber();
-
-const isLoading = ref(true);
-const photosInCurrentVote = ref<Photo[]>([]);
+const { photosInCurrentVote } = useVote();
 </script>
 
 <template>
@@ -29,22 +18,22 @@ const photosInCurrentVote = ref<Photo[]>([]);
     >
       <div
         v-for="(photo, index) in photosInCurrentVote"
-        :key="photo.$id"
+        :key="photo.fileName"
         class="d-flex flex-column align-center px-5 py-4"
       >
         <v-img
-          :src="photo.url"
+          :src="`/images/${photo.fileName}`"
           :alt="photo.altText"
-          max-width="480"
           :aspect-ratio="16 / 9"
+          max-width="480"
         />
         <p class="mt-2 text-h6">Photo {{ index + 1 }}</p>
       </div>
     </div>
     <div id="vote-btns" class="mb-4 d-flex justify-center flex-wrap">
-      <v-btn :disabled="isLoading" size="large">Photo 1</v-btn>
-      <v-btn :disabled="isLoading" size="large">Photo 2</v-btn>
-      <v-btn :disabled="isLoading" size="large">I can't decide</v-btn>
+      <v-btn size="large">Photo 1</v-btn>
+      <v-btn size="large">Photo 2</v-btn>
+      <v-btn size="large">I can't decide</v-btn>
     </div>
   </section>
 </template>
