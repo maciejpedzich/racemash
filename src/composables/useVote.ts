@@ -114,7 +114,7 @@ export function useVote() {
   return {
     photosInCurrentVote,
     photosForFirstPick,
-    createVote: pickPhotosForNewVote,
+    pickPhotosForNewVote,
     submitVote,
     updateRatings,
     ...toRefs(db)
