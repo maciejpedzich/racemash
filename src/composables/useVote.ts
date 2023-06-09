@@ -50,7 +50,7 @@ const pickPhotosForNewVote = () => {
 };
 
 const submitVote = (result: 0 | 0.5 | 1) => {
-  const fileNames = ([...photosInCurrentVote.value] as Photo[]).map(
+  const fileNames = [...photosInCurrentVote.value].map(
     ({ fileName }) => fileName
   ) as [string, string];
 
