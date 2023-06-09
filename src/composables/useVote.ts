@@ -36,11 +36,8 @@ const pickPhotosForNewVote = () => {
     );
 
     const fileNamesToExclude = [
-      ...new Set(
-        votesWithFirstPick
-          .flatMap(({ photos }) => photos)
-          .concat([firstPick.fileName])
-      )
+      firstPick.fileName,
+      ...new Set(votesWithFirstPick.flatMap(({ photos }) => photos))
     ];
 
     return !fileNamesToExclude.includes(fileName);
@@ -72,46 +69,53 @@ const updateRatings = () => {
   const votesGrouppedByPhotos = twelveMostRecentVotes.reduce((obj, vote) => {
     const [firstFileName, secondFileName] = vote.photos;
 
-    const firstPhoto = db.photos.find(
-      ({ fileName }) => fileName === firstFileName
-    )!;
-
     const secondPhoto = db.photos.find(
       ({ fileName }) => fileName === secondFileName
     )!;
 
-    const firstPhotoOpponentParams = [
+    const paramsVersusSecondPhoto = [
       secondPhoto.rating,
       secondPhoto.rd,
       vote.result
     ] as [number, number, number];
 
-    const secondPhotoOpponentParams = [
+    if (obj[firstFileName]) {
+      obj[firstFileName].push(paramsVersusSecondPhoto);
+    } else {
+      obj[firstFileName] = [paramsVersusSecondPhoto];
+    }
+
+    const firstPhoto = db.photos.find(
+      ({ fileName }) => fileName === firstFileName
+    )!;
+
+    const paramsVersusFirstPhoto = [
       firstPhoto.rating,
       firstPhoto.rd,
       1 - vote.result
     ] as [number, number, number];
 
-    if (obj[firstFileName]) {
-      obj[firstFileName].push(firstPhotoOpponentParams);
-    } else {
-      obj[firstFileName] = [firstPhotoOpponentParams];
-    }
-
     if (obj[secondFileName]) {
-      obj[secondFileName].push(secondPhotoOpponentParams);
+      obj[secondFileName].push(paramsVersusFirstPhoto);
     } else {
-      obj[secondFileName] = [secondPhotoOpponentParams];
+      obj[secondFileName] = [paramsVersusFirstPhoto];
     }
 
     return obj;
   }, {} as Record<string, [number, number, number][]>);
 
-  for (const [photoFileName, votes] of Object.entries(votesGrouppedByPhotos)) {
+  for (const [photoFileName, voteHistory] of Object.entries(
+    votesGrouppedByPhotos
+  )) {
     const photo = db.photos.find(({ fileName }) => fileName === photoFileName)!;
-    const newRatingParams = glicko2(photo.rating, photo.rd, photo.vol, votes);
+    const updatedRatingParams = glicko2(
+      photo.rating,
+      photo.rd,
+      photo.vol,
+      voteHistory
+    );
 
-    Object.assign(photo, newRatingParams);
+    Object.assign(photo, updatedRatingParams);
   }
 };
 
