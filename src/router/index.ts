@@ -9,11 +9,6 @@ const routes = [
     component: Home
   },
   {
-    path: '/log-in',
-    name: 'LogIn',
-    component: () => import('../views/LogIn.vue')
-  },
-  {
     path: '/vote',
     name: 'Vote',
     meta: { authRequired: true },

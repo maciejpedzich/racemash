@@ -1,7 +1,10 @@
 <script lang="ts" setup>
+import { onMounted } from 'vue';
 import { useVote } from '@/composables/useVote';
 
-const { photosInCurrentVote } = useVote();
+const { photosInCurrentVote, pickPhotosForNewVote } = useVote();
+
+onMounted(pickPhotosForNewVote);
 </script>
 
 <template>
