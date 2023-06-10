@@ -1,4 +1,4 @@
-import { computed, reactive, ref, toRefs, watchEffect } from 'vue';
+import { reactive, ref, toRefs, watchEffect } from 'vue';
 import glicko2 from 'glicko2-lite';
 
 import defaultPhotos from '@/photos.json';
@@ -14,21 +14,17 @@ const db = reactive<Database>(
 
 const photosInCurrentVote = ref<Photo[]>([]);
 
-const photosForFirstPick = computed(() =>
-  db.photos.filter(({ fileName }) => {
+const pickPhotosForNewVote = () => {
+  const photosForFirstPick = db.photos.filter(({ fileName }) => {
     const appearanceCount = db.votes.filter((vote) =>
       vote.photos.includes(fileName)
     ).length;
 
     return appearanceCount !== db.photos.length - 1;
-  })
-);
+  });
 
-const pickPhotosForNewVote = () => {
   const firstPick =
-    photosForFirstPick.value[
-      randomNumber(0, photosForFirstPick.value.length - 1)
-    ];
+    photosForFirstPick[randomNumber(0, photosForFirstPick.length - 1)];
 
   const photosForSecondPick = db.photos.filter(({ fileName }) => {
     const votesWithFirstPick = db.votes.filter(({ photos }) =>
@@ -37,7 +33,7 @@ const pickPhotosForNewVote = () => {
 
     const fileNamesToExclude = [
       firstPick.fileName,
-      ...new Set(votesWithFirstPick.flatMap(({ photos }) => photos))
+      ...votesWithFirstPick.flatMap(({ photos }) => photos)
     ];
 
     return !fileNamesToExclude.includes(fileName);
@@ -50,11 +46,11 @@ const pickPhotosForNewVote = () => {
 };
 
 const submitVote = (result: 0 | 0.5 | 1) => {
-  const fileNames = [...photosInCurrentVote.value].map(
+  const photos = [...photosInCurrentVote.value].map(
     ({ fileName }) => fileName
   ) as [string, string];
 
-  db.votes.unshift({ photos: fileNames, result });
+  db.votes.unshift({ photos, result });
 
   if (db.votes.length % 12 === 0) {
     updateRatings();
@@ -67,38 +63,23 @@ const updateRatings = () => {
   const twelveMostRecentVotes = db.votes.slice(0, 12).reverse();
 
   const votesGrouppedByPhotos = twelveMostRecentVotes.reduce((obj, vote) => {
-    const [firstFileName, secondFileName] = vote.photos;
+    for (const [index, fileName] of vote.photos.entries()) {
+      const opponentFileName = vote.photos[1 - index];
+      const opponent = db.photos.find(
+        ({ fileName }) => fileName === opponentFileName
+      )!;
 
-    const secondPhoto = db.photos.find(
-      ({ fileName }) => fileName === secondFileName
-    )!;
+      const voteParams = [
+        opponent.rating,
+        opponent.rd,
+        index === 0 ? vote.result : 1 - vote.result
+      ] as [number, number, number];
 
-    const paramsVersusSecondPhoto = [
-      secondPhoto.rating,
-      secondPhoto.rd,
-      vote.result
-    ] as [number, number, number];
-
-    if (obj[firstFileName]) {
-      obj[firstFileName].push(paramsVersusSecondPhoto);
-    } else {
-      obj[firstFileName] = [paramsVersusSecondPhoto];
-    }
-
-    const firstPhoto = db.photos.find(
-      ({ fileName }) => fileName === firstFileName
-    )!;
-
-    const paramsVersusFirstPhoto = [
-      firstPhoto.rating,
-      firstPhoto.rd,
-      1 - vote.result
-    ] as [number, number, number];
-
-    if (obj[secondFileName]) {
-      obj[secondFileName].push(paramsVersusFirstPhoto);
-    } else {
-      obj[secondFileName] = [paramsVersusFirstPhoto];
+      if (obj[fileName]) {
+        obj[fileName].push(voteParams);
+      } else {
+        obj[fileName] = [voteParams];
+      }
     }
 
     return obj;
@@ -124,7 +105,6 @@ watchEffect(() => localStorage.setItem('db', JSON.stringify(db)));
 export function useVote() {
   return {
     photosInCurrentVote,
-    photosForFirstPick,
     pickPhotosForNewVote,
     submitVote,
     updateRatings,
