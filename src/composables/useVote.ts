@@ -1,4 +1,4 @@
-import { reactive, ref, toRefs, watchEffect } from 'vue';
+import { computed, reactive, ref, toRefs, watchEffect } from 'vue';
 import glicko2 from 'glicko2-lite';
 
 import defaultPhotos from '@/photos.json';
@@ -8,13 +8,34 @@ import { randomNumber } from '@/utils/randomNumber';
 const db = reactive<Database>(
   JSON.parse(localStorage.getItem('db') as string) || {
     photos: defaultPhotos,
-    votes: []
+    votes: [],
+    shownFactIndexes: []
   }
 );
 
 const photosInCurrentVote = ref<Photo[]>([]);
 
+// We need to calculate the number of pairs we can create from a set of n photos.
+// // Since the order in which the photos are picked doesn't matter,
+// the number of all votes a user can submit equals "n choose 2".
+// This can be simplified to: (n * (n - 1)) / 2
+const NUM_POSSIBLE_VOTES = (db.photos.length * (db.photos.length - 1)) / 2;
+
+const completionPercentage = computed(
+  () => (db.votes.length / NUM_POSSIBLE_VOTES) * 100
+);
+
+const userSubmittedAllVotes = computed(
+  () => completionPercentage.value === 100
+);
+
+const userReachedTriviaMilestone = computed(() =>
+  [25, 50, 75].includes(completionPercentage.value)
+);
+
 const pickPhotosForNewVote = () => {
+  if (userSubmittedAllVotes.value) return;
+
   const photosForFirstPick = db.photos.filter(({ fileName }) => {
     const appearanceCount = db.votes.filter((vote) =>
       vote.photos.includes(fileName)
@@ -31,12 +52,12 @@ const pickPhotosForNewVote = () => {
       photos.includes(firstPick.fileName)
     );
 
-    const fileNamesToExclude = [
+    const fileNamesToExclude = new Set([
       firstPick.fileName,
       ...votesWithFirstPick.flatMap(({ photos }) => photos)
-    ];
+    ]);
 
-    return !fileNamesToExclude.includes(fileName);
+    return fileNamesToExclude.has(fileName) === false;
   });
 
   const secondPick =
@@ -46,9 +67,10 @@ const pickPhotosForNewVote = () => {
 };
 
 const submitVote = (result: 0 | 0.5 | 1) => {
-  const photos = [...photosInCurrentVote.value].map(
-    ({ fileName }) => fileName
-  ) as [string, string];
+  const photos = photosInCurrentVote.value.map(({ fileName }) => fileName) as [
+    string,
+    string
+  ];
 
   db.votes.unshift({ photos, result });
 
@@ -60,6 +82,8 @@ const submitVote = (result: 0 | 0.5 | 1) => {
 };
 
 const updateRatings = () => {
+  // The first vote in the array is the most recent one.
+  // Therefore calling reverse will order these votes chronologically.
   const twelveMostRecentVotes = db.votes.slice(0, 12).reverse();
 
   const votesGrouppedByPhotos = twelveMostRecentVotes.reduce((obj, vote) => {
@@ -104,10 +128,12 @@ watchEffect(() => localStorage.setItem('db', JSON.stringify(db)));
 
 export function useVote() {
   return {
+    ...toRefs(db),
     photosInCurrentVote,
+    completionPercentage,
+    userReachedTriviaMilestone,
+    userSubmittedAllVotes,
     pickPhotosForNewVote,
-    submitVote,
-    updateRatings,
-    ...toRefs(db)
+    submitVote
   };
 }

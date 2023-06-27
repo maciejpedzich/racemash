@@ -14,4 +14,5 @@ export interface Vote {
 export interface Database {
   photos: Photo[];
   votes: Vote[];
+  shownFactIndexes: number[];
 }
