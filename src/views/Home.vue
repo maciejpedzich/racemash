@@ -43,6 +43,16 @@
         >
         every 12 votes you cast.
       </p>
+      <p class="text-h5 font-weight-regular">
+        This project was developed by
+        <a
+          href="https://maciejpedzi.ch"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Maciej Pędzich</a
+        >
+        and its source code is available under the Apache 2.0 License.
+      </p>
     </div>
   </section>
 </template>
