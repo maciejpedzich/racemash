@@ -19,6 +19,12 @@ const showDrawer = ref(false);
     <v-list density="compact" nav>
       <v-list-item title="Home" prepend-icon="mdi-home" link to="/" />
       <v-list-item title="Vote" prepend-icon="mdi-vote" link to="/vote" />
+      <v-list-item
+        title="Source code"
+        prepend-icon="mdi-xml"
+        link
+        href="https://github.com/maciejpedzich/racemash"
+      />
     </v-list>
   </v-navigation-drawer>
 </template>
