@@ -38,8 +38,8 @@ watch(userReachedTriviaMilestone, (valueIsTrue) => {
   <section class="w-100 h-100 d-flex flex-column justify-center align-center">
     <div class="text-center">
       <template v-if="userSubmittedAllVotes">
-        <h1 class="mb-5 text-h2">Congratulations!</h1>
-        <p class="px-4 mb-5 text-h5 font-weight-regular">
+        <h1 class="mb-7 text-h2">Congratulations!</h1>
+        <p class="px-4 mb-7 text-h5 font-weight-regular">
           You've submitted all votes. Check out the results by clicking the
           button below.
         </p>
