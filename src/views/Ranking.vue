@@ -10,15 +10,15 @@ const photosSortedByRatingDesc = photos.value.sort(
   (a, b) => b.rating - a.rating
 );
 const cols = computed(() =>
-  display.xl.value ? 3 : display.lg.value ? 4 : display.md.value ? 6 : 12
+  display.xlAndUp.value ? 3 : display.lg.value ? 4 : display.md.value ? 6 : 12
 );
 </script>
 
 <template>
   <section class="w-100 h-100 d-flex flex-column justify-center align-center">
-    <h1 class="mt-10 mb-5 text-h3">Ranking</h1>
-    <p class="px-4 mb-5 text-h6 font-weight-regular">
-      Here's the final ranking of photos based on the votes you've submitted:
+    <h1 class="mt-10 mb-3 text-h3">Ranking</h1>
+    <p class="px-4 mb-3 text-h6 font-weight-regular">
+      Here's the final classification of photos based on their ratings:
     </p>
     <v-container>
       <v-row dense no-gutters>
