@@ -38,15 +38,15 @@ watch(userReachedTriviaMilestone, (valueIsTrue) => {
   <section class="w-100 h-100 d-flex flex-column justify-center align-center">
     <div class="text-center">
       <template v-if="userSubmittedAllVotes">
-        <h1 class="mt-4 mb-5 text-h3">Congratulations!</h1>
-        <p class="px-4 mb-5 text-h6 font-weight-regular">
+        <h1 class="mb-5 text-h2">Congratulations!</h1>
+        <p class="px-4 mb-5 text-h5 font-weight-regular">
           You've submitted all votes. Check out the results by clicking the
           button below.
         </p>
         <v-btn size="large" to="/ranking">Show ranking</v-btn>
       </template>
       <template v-else-if="userReachedTriviaMilestone && canShowFunFact">
-        <h1 class="mt-4 mb-2 text-h3">Trivia pit stop</h1>
+        <h1 class="mb-2 text-h3">Trivia pit stop</h1>
         <div class="mt-3 mb-8 px-12">
           <p class="text-h6 mb-6 font-weight-regular">
             You're doing great! While we have a quick pit stop to keep you
