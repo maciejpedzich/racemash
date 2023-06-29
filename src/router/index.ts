@@ -1,4 +1,11 @@
-import { createRouter, createWebHistory } from 'vue-router';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
+import {
+  NavigationGuardNext,
+  RouteLocationNormalized,
+  createRouter,
+  createWebHistory
+} from 'vue-router';
 
 import Home from '@/views/Home.vue';
 import { useVote } from '@/composables/useVote';
@@ -20,12 +27,15 @@ const routes = [
     path: '/ranking',
     name: 'Ranking',
     component: () => import('../views/Ranking.vue'),
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    beforeEnter: (_to: unknown, _from: unknown, next: () => void) => {
+    beforeEnter: (
+      _to: RouteLocationNormalized,
+      _from: RouteLocationNormalized,
+      next: NavigationGuardNext
+    ) => {
       if (userSubmittedAllVotes.value) {
         return next();
       } else {
-        return false;
+        return next('/');
       }
     }
   }
@@ -33,7 +43,14 @@ const routes = [
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
+  routes,
+  scrollBehavior(to, _from, _savedPosition) {
+    if (to.hash) {
+      return {
+        el: to.hash
+      };
+    }
+  }
 });
 
 export default router;
