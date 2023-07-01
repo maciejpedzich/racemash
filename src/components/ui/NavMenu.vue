@@ -18,6 +18,12 @@ const showDrawer = ref(false);
   <v-navigation-drawer v-model="showDrawer" temporary>
     <v-list density="compact" nav>
       <v-list-item title="Home" prepend-icon="mdi-home" link to="/" />
+      <v-list-item
+        title="About"
+        prepend-icon="mdi-information"
+        link
+        to="/about"
+      />
       <v-list-item title="Vote" prepend-icon="mdi-vote" link to="/vote" />
       <v-list-item
         title="Source code"
