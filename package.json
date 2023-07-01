@@ -6,8 +6,7 @@
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "lint": "eslint . --fix --ignore-path .gitignore --ext .ts,.vue",
-    "prettier-format": "prettier --config .prettierrc --ignore-path .gitignore --write \"./**/*.{vue,js,ts}\"",
-    "prepare": "husky install"
+    "prettier-format": "prettier --config .prettierrc --ignore-path .gitignore --write \"./**/*.{vue,js,ts}\""
   },
   "dependencies": {
     "@mdi/font": "7.0.96",
