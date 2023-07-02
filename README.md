@@ -1,4 +1,4 @@
-# default
+# RaceMash
 
 ## Project setup
 
