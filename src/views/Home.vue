@@ -7,7 +7,7 @@
       It's like FaceMash, but with photos of F1 cars
     </p>
     <div id="hero-btns" class="d-flex justify-center flex-wrap mb-12">
-      <v-btn color="primary" size="large" to="/vote">Play</v-btn>
+      <v-btn color="primary" size="large" to="/vote">Vote</v-btn>
       <v-btn size="large" to="/about">Tell me more</v-btn>
     </div>
   </section>
