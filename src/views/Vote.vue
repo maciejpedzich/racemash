@@ -64,15 +64,18 @@ watch(userReachedTriviaMilestone, (valueIsTrue) => {
           Which photo do you like more? Click one of three buttons below to
           choose.
         </p>
-        <v-progress-linear
-          color="primary"
-          height="20"
-          :model-value="completionPercentage"
-        >
-          <template v-slot:default="{ value }">
-            <strong>{{ value.toFixed(2) }}%</strong>
-          </template>
-        </v-progress-linear>
+        <div class="w-100 px-4">
+          <v-progress-linear
+            class="px-6"
+            color="primary"
+            height="20"
+            :model-value="completionPercentage"
+          >
+            <template v-slot:default="{ value }">
+              <strong>{{ value.toFixed(2) }}%</strong>
+            </template>
+          </v-progress-linear>
+        </div>
         <div
           class="py-lg-6 py-3 d-flex flex-lg-row flex-lg-row flex-column align-center"
         >
