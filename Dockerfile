@@ -4,7 +4,8 @@ COPY . .
 RUN npm i
 RUN npm run build
 
-FROM httpd:2.4-alpine AS runtime
-COPY --from=build /app/httpd.conf /usr/local/apache2/conf/httpd.conf
-COPY --from=build /app/dist /usr/local/apache2/htdocs/
+FROM nginx:stable-alpine AS runtime
+COPY --from=build /app/nginx/default.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /app/dist /usr/share/nginx/html
 EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
