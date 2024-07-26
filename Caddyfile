@@ -1,0 +1,13 @@
+{
+	auto_https off
+	servers {
+		trusted_proxies static private_ranges
+	}
+}
+
+http://racemash.maciejpedzi.ch {
+	root * /srv
+	encode gzip
+	try_files {path} /index.html
+	file_server
+}
